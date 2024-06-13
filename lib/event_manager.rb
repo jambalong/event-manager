@@ -43,6 +43,10 @@ def parse_reg_date(reg_date)
   DateTime.strptime(reg_date, "%m/%d/%Y %H:%M")
 end
 
+def get_peak_hour(hours)
+  hours.max_by { |_hour, count| count }.first
+end
+
 puts 'EventManager initialized.'
 
 contents = CSV.open(
@@ -54,6 +58,8 @@ contents = CSV.open(
 template_letter = File.read('form_letter.erb')
 erb_template = ERB.new template_letter
 
+hours = Hash.new(0)
+
 contents.each do |row|
   id = row[0]
   name = row[:first_name]
@@ -62,7 +68,12 @@ contents.each do |row|
   phone_number = clean_phone_number(row[:homephone])
   reg_date = parse_reg_date(row[:regdate])
 
+  hours[reg_date.hour] += 1
+
   form_letter = erb_template.result(binding)
 
   save_thank_you_letter(id, form_letter)
 end
+
+peak_hour = get_peak_hour(hours)
+puts "The peak hour for registration: #{peak_hour}"
