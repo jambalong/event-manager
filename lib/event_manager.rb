@@ -47,6 +47,10 @@ def get_peak_hour(hours)
   hours.max_by { |_hour, count| count }.first
 end
 
+def get_peak_day(days)
+  Date::DAYNAMES[days.max_by { |_day, count| count }.first]
+end
+
 puts 'EventManager initialized.'
 
 contents = CSV.open(
@@ -59,6 +63,7 @@ template_letter = File.read('form_letter.erb')
 erb_template = ERB.new template_letter
 
 hours = Hash.new(0)
+days = Hash.new(0)
 
 contents.each do |row|
   id = row[0]
@@ -69,6 +74,7 @@ contents.each do |row|
   reg_date = parse_reg_date(row[:regdate])
 
   hours[reg_date.hour] += 1
+  days[reg_date.wday] += 1
 
   form_letter = erb_template.result(binding)
 
@@ -77,3 +83,6 @@ end
 
 peak_hour = get_peak_hour(hours)
 puts "The peak hour for registration: #{peak_hour}"
+
+peak_day = get_peak_day(days)
+puts "The peak day for registration: #{peak_day}"
