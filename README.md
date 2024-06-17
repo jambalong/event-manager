@@ -1,6 +1,6 @@
 # Event Manager
 
-This project is part of the The Odin Project - [Event Manager](https://www.theodinproject.com/lessons/ruby-event-manager) in Ruby curriculum.
+This project is part of The Odin Project - [Event Manager](https://www.theodinproject.com/lessons/ruby-event-manager) in Ruby curriculum.
 
 ## Lesson Overview
 
