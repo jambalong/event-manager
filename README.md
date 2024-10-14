@@ -4,16 +4,17 @@ This project is part of The Odin Project - [Event Manager](https://www.theodinpr
 
 ## Lesson Overview
 
-Topics that will be learned in this project:
+In this project, I will develop skills in data manipulation and analysis by working with CSV files and external APIs. 
 
-* Manipulate file input and output.
-* Read content from a CSV (Comma Separated Value) file.
-* Transform it into a standardized format.
-* Utilize the data to contact a remote service.
-* Populate a template with user data.
-* Manipulate strings.
-* Access Google’s Civic Information API through the Google API Client Gem.
-* Use ERB (Embedded Ruby) for templating.
+Key topics include:
+
+- **File Input/Output**: Learn how to read from and write to files in Ruby.
+- **CSV Handling**: Parse and process data from CSV files to ensure data integrity and consistency.
+- **Data Transformation**: Standardize input formats, particularly for phone numbers and registration timestamps.
+- **API Integration**: Access and utilize Google’s Civic Information API using the Google API Client Gem for enhanced functionality.
+- **String Manipulation**: Develop skills to clean and format strings for better usability and analysis.
+- **Time Analysis**: Utilize Ruby's Date and Time classes to analyze registration data and identify peak registration hours and days.
+- **Templating with ERB**: Use Embedded Ruby (ERB) for dynamically populating templates with user data, enhancing presentation and interaction.
 
 ## Assignment: Clean phone numbers
 
